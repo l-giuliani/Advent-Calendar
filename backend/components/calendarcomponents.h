@@ -3,16 +3,7 @@
 
 #include <QObject>
 #include <QList>
-
-namespace SurpriseType {
-Q_NAMESPACE
-enum Surprise {
-    TEXT,
-    IMAGE,
-    VIDEO
-};
-Q_ENUM_NS(Surprise)
-}
+#include "../dto/calendardto.h"
 
 class Surprise : public QObject {
     Q_OBJECT
@@ -26,6 +17,7 @@ public:
     QString getText();
     void setText(QString text);
     SurpriseType::Surprise getSurpriseType();
+    virtual void setData(const SurpriseData& surpriseData);
 };
 
 class MediaSurprise : public Surprise {
@@ -37,6 +29,12 @@ public:
     MediaSurprise(SurpriseType::Surprise surpriseType);
     QString getUrl();
     void setUrl(QString url);
+    void setData(const SurpriseData& surpriseData);
+};
+
+class SurpriseFactory {
+public:
+    static Surprise* create(SurpriseType::Surprise surpriseType);
 };
 
 class Letter : public QObject {

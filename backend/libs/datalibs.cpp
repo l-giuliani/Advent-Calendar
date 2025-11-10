@@ -10,29 +10,29 @@ void DataLibs::inspectSurpriseDataFolder(SurpriseData &surpriseData, quint8 dayN
     QString path = QString(DATA_PATH) + "/" + QString::number(dayNumber);
 
     QStringList extvideo;
-    extvideo << ".avi";
-    extvideo << ".mp4";
+    extvideo << "*.avi";
+    extvideo << "*.mp4";
 
     QStringList extimg;
-    extimg << ".jpg";
-    extimg << ".png";
+    extimg << "*.jpg";
+    extimg << "*.png";
 
     QStringList exttxt;
-    exttxt << ".txt";
+    exttxt << "*.txt";
 
     QDir dir(path);
     QStringList mediaList = dir.entryList(extvideo, QDir::Files);
     if(mediaList.length() == 0) {
         mediaList = dir.entryList(extimg, QDir::Files);
         if(mediaList.length() == 0) {
-            surpriseData.surpriseType = SurpriseType::IMAGE;
-            surpriseData.mediaUrl = mediaList.at(0);
-        } else {
             surpriseData.surpriseType = SurpriseType::TEXT;
+        } else {
+            surpriseData.surpriseType = SurpriseType::IMAGE;
+            surpriseData.mediaUrl = path + "/" + mediaList.at(0);
         }
     } else {
         surpriseData.surpriseType = SurpriseType::VIDEO;
-        surpriseData.mediaUrl = mediaList.at(0);
+        surpriseData.mediaUrl = path + "/" + mediaList.at(0);
     }
     mediaList = dir.entryList(exttxt, QDir::Files);
     if(mediaList.length() == 0) {

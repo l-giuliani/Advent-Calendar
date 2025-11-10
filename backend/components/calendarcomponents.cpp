@@ -16,6 +16,10 @@ SurpriseType::Surprise Surprise::getSurpriseType() {
     return this->surpriseType;
 }
 
+void Surprise::setData(const SurpriseData &surpriseData) {
+    this->text = surpriseData.text;
+}
+
 bool Letter::getIsOpen() {
     return this->isOpen;
 }
@@ -57,6 +61,11 @@ void MediaSurprise::setUrl(QString url) {
     this->url = url;
 }
 
+void MediaSurprise::setData(const SurpriseData &surpriseData) {
+    Surprise::setData(surpriseData);
+    this->url = surpriseData.mediaUrl;
+}
+
 Letter* LetterContainer::getLetter(quint8 dayNumber) {
     return this->letters.at(dayNumber);
 }
@@ -67,4 +76,14 @@ void LetterContainer::addLetter(Letter* letter) {
 
 void LetterContainer::addLetter(Letter* letter, int idx) {
     this->letters[idx] = letter;
+}
+
+Surprise *SurpriseFactory::create(SurpriseType::Surprise surpriseType) {
+    if (surpriseType == SurpriseType::IMAGE) {
+        return new MediaSurprise(SurpriseType::IMAGE);
+    } else if (surpriseType == SurpriseType::VIDEO) {
+        return new MediaSurprise(SurpriseType::VIDEO);
+    } else {
+        return new Surprise();
+    }
 }

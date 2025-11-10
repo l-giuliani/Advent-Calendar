@@ -1,13 +1,7 @@
 #ifndef DATALIBS_H
 #define DATALIBS_H
 
-#include "../components/calendarcomponents.h"
-
-typedef struct {
-    SurpriseType::Surprise surpriseType;
-    QString mediaUrl;
-    QString text;
-} SurpriseData;
+#include "../dto/calendardto.h"
 
 class DataLibs
 {

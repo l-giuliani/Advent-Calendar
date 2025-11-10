@@ -1,19 +1,15 @@
 #include "systemservices.h"
 
+#include "../libs/datalibs.h"
+#include "../components/calendarcomponents.h"
 
 void defineSurprises(LetterContainer* letterContainer) {
+    SurpriseData surpriseData;
     for(int i=0;i<25;i++) {
-        if(i%2 == 0) {
-            MediaSurprise* surprise = new MediaSurprise(SurpriseType::VIDEO);
-            surprise->setText("pippo");
-            surprise->setUrl("C:/Users/lgiuliani/Projects/adventCalendar/data/1/example2.mp4");
-            letterContainer->getLetter(i)->setSurprise(surprise);
-        } else {
-            MediaSurprise* surprise2 = new MediaSurprise(SurpriseType::IMAGE);
-            surprise2->setText("pippo2");
-            surprise2->setUrl("qrc:/images/home.jpg");
-            letterContainer->getLetter(i)->setSurprise(surprise2);
-        }
+        DataLibs::inspectSurpriseDataFolder(surpriseData, i+1);
+        Surprise* surprise = SurpriseFactory::create(surpriseData.surpriseType);
+        surprise->setData(surpriseData);
+        letterContainer->getLetter(i)->setSurprise(surprise);
     }
 }
 
