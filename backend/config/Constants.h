@@ -5,4 +5,8 @@
 #define LETTERS_IMG_PATH "C:/Users/lgiuliani/Projects/adventCalendar/data/letters"
 #define STATUS_FILENAME "C:/Users/lgiuliani/Projects/adventCalendar/data/status.dat"
 
+// #define DATA_PATH "../../../data"
+// #define LETTERS_IMG_PATH "../../../data/letters"
+// #define STATUS_FILENAME "../../../data/status.dat"
+
 #endif // CONSTANTS_H

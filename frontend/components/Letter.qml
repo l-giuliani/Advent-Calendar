@@ -40,9 +40,13 @@ Item {
 
     function open() {
         const letter = letterContainer.getLetter(dayNumber-1)
-        letter.open()
-        animationTimer.dayNumber = dayNumber-1
-        animationTimer.start()
+        if(letter.isOpen){
+            opened(dayNumber-1)
+        } else {
+            letter.open()
+            animationTimer.dayNumber = dayNumber-1
+            animationTimer.start()
+        }
     }
 
     states: [
