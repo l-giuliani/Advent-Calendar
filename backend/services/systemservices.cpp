@@ -15,10 +15,12 @@ void defineSurprises(LetterContainer* letterContainer) {
 }
 
 void generateLetters(LetterContainer* letterContainer) {
+    QStringList lettersImageList = DataLibs::retrieveLettersImages();
     for(int i=0;i<25;i++) {
         Letter* letter = new Letter();
         letter->setDayNumber(i+1);
         letter->setIsOpen(DataLibs::getStatus(calendarData.getLetterStatus(), i+1));
+        letter->setImage(DataLibs::getRandomLettersImage(lettersImageList));
         letterContainer->addLetter(letter);
     }
 }

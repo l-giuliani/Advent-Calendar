@@ -2,6 +2,7 @@
 
 #include <QStringList>
 #include <QDir>
+#include <QRandomGenerator>
 #include "../config/Constants.h"
 
 DataLibs::DataLibs() {}
@@ -48,6 +49,22 @@ void DataLibs::inspectSurpriseDataFolder(SurpriseData &surpriseData, quint8 dayN
     QTextStream in(&file);
     surpriseData.text = in.readAll();
     file.close();
+}
+
+QStringList DataLibs::retrieveLettersImages() {
+    QString path = QString(LETTERS_IMG_PATH);
+    QDir dir(path);
+    QStringList list = dir.entryList(QDir::Files);
+    QStringList reslist;
+    for (const QString &fi : list) {
+        reslist << (QString(LETTERS_IMG_PATH) + "/" + fi);
+    }
+    return reslist;
+}
+
+QString DataLibs::getRandomLettersImage(QStringList images) {
+    int randomIdx = QRandomGenerator::global()->bounded(0, images.length());
+    return images.at(randomIdx);
 }
 
 bool DataLibs::getStatus(quint32 status, quint8 dayNumber) {

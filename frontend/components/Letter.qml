@@ -162,7 +162,6 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             height:  parent.height - parent.height * 0.25
-            source: "qrc:/images/three.jpg"
             fillMode: Image.PreserveAspectCrop
         }
 

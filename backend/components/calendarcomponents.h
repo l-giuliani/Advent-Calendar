@@ -42,10 +42,12 @@ class Letter : public QObject {
     Q_PROPERTY(bool isOpen READ getIsOpen NOTIFY isOpenChanged)
     Q_PROPERTY(quint8 dayNumber READ getDayNumber CONSTANT)
     Q_PROPERTY(Surprise* surprise READ getSurprise CONSTANT)
+    Q_PROPERTY(QString imageSource READ getImage CONSTANT)
 private:
     bool isOpen;
     quint8 dayNumber;
     Surprise* surprise;
+    QString image;
 public:
     bool getIsOpen();
     void setIsOpen(bool isOpen);
@@ -55,6 +57,9 @@ public:
     void setDayNumber(quint8 dayNumber);
     Surprise* getSurprise();
     void setSurprise(Surprise* surprise);
+    QString getImage() const;
+    void setImage(const QString &newImage);
+
 signals:
     void isOpenChanged();
 };

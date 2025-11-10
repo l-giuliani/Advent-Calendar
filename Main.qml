@@ -5,15 +5,30 @@ import QtQuick.Particles
 import "frontend/components"
 
 Window {
-    width: 640
-    height: 480
+    // width: 640
+    // height: 480
     visible: true
     title: qsTr("Advent Calendar")
+    width: Screen.desktopAvailableWidth
+    height: Screen.desktopAvailableHeight
     //visibility: Window.FullScreen
 
     Image {
         anchors.fill: parent
         source: "qrc:/images/three_snow.jpg"
+    }
+
+    Item {
+        anchors.top: parent.top
+        anchors.left: parent.left
+        width: 30
+        height: 30
+        z: 999
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                Qt.quit()}
+        }
     }
 
     Item {
@@ -35,7 +50,7 @@ Window {
             size: 8
             sizeVariation: 4
             velocity: PointDirection {
-                y: 50
+                y: 70
                 yVariation: 20
                 xVariation: 15
             }

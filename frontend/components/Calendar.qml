@@ -41,10 +41,11 @@ Item {
                         return parent.width * 0.45
                     }
                 }
+                property var mapNum: local.mapNumbers(index)
                 anchors.horizontalCenter: parent.horizontalCenter
                 y: (index%2==0)?(parent.height * 0.20):(parent.height * 0.30)
-                frontTexture: "qrc:/images/three.jpg"
-                dayNumber: local.mapNumbers(index)
+                frontTexture: "file:///" + letterContainer.getLetter(mapNum-1).imageSource
+                dayNumber: mapNum
                 onOpened: function(dayNumber) {
                     surprisePanel.surprise = letterContainer.getLetter(dayNumber).surprise
                     exitArea.enabled = true
@@ -54,29 +55,6 @@ Item {
             }
         }
     }
-
-    //no - rifare con layout fisso column - row sfalzati
-    // Flow {
-    //     spacing: 20  // distanza verticale tra le righe
-    //     anchors.fill: parent
-    //     anchors.margins: 10
-
-    //     Repeater {
-    //         model: 5  // numero di righe
-    //         delegate: Row {
-    //             spacing: 10  // distanza orizzontale tra le colonne
-
-    //             Repeater {
-    //                 model: 4  // numero di colonne
-    //                 delegate: Letter {
-    //                     width: local.randomNumber(80, 150)
-    //                     height: local.randomNumber(80, 150)  // sfalsamento verticale
-    //                     //color: index % 2 === 0 ? "lightblue" : "lightgreen"
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
 
     MouseArea {
         id: exitArea

@@ -22,6 +22,14 @@ void Surprise::setData(const SurpriseData &surpriseData) {
     this->text = surpriseData.text;
 }
 
+QString Letter::getImage() const {
+    return image;
+}
+
+void Letter::setImage(const QString &newImage) {
+    image = newImage;
+}
+
 bool Letter::getIsOpen() {
     return this->isOpen;
 }
