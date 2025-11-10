@@ -43,9 +43,11 @@ Item {
         if(letter.isOpen){
             opened(dayNumber-1)
         } else {
-            letter.open()
-            animationTimer.dayNumber = dayNumber-1
-            animationTimer.start()
+            let res = letter.open()
+            if(res) {
+                animationTimer.dayNumber = dayNumber-1
+                animationTimer.start()
+            }
         }
     }
 

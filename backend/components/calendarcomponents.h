@@ -52,7 +52,7 @@ public:
     bool getIsOpen();
     void setIsOpen(bool isOpen);
     Q_INVOKABLE
-    void open();
+    bool open();
     quint8 getDayNumber();
     void setDayNumber(quint8 dayNumber);
     Surprise* getSurprise();

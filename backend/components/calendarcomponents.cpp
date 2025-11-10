@@ -1,5 +1,6 @@
 #include "calendarcomponents.h"
 
+#include <QDate>
 #include "componentservices.h"
 
 Surprise::Surprise() {
@@ -38,11 +39,17 @@ void Letter::setIsOpen(bool isOpen) {
     this->isOpen = isOpen;
 }
 
-void Letter::open() {
+bool Letter::open() {
+    QDate now = QDate::currentDate();
+    if( this->dayNumber > now.day()) {
+        return false;
+    }
+
     this->isOpen = true;
     emit isOpenChanged();
 
     ComponentServices::setSurpriseAsOpen(this->dayNumber);
+    return true;
 }
 
 quint8 Letter::getDayNumber() {
