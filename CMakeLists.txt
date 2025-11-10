@@ -35,6 +35,8 @@ qt_add_qml_module(appadventCalendar
         SOURCES backend/libs/datalibs.h backend/libs/datalibs.cpp
         SOURCES backend/config/Constants.h
         SOURCES backend/dto/calendardto.h backend/dto/calendardto.cpp
+        SOURCES backend/data/calendardata.h backend/data/calendardata.cpp
+        SOURCES backend/components/componentservices.h backend/components/componentservices.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

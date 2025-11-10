@@ -1,5 +1,7 @@
 #include "calendarcomponents.h"
 
+#include "componentservices.h"
+
 Surprise::Surprise() {
     this->surpriseType = SurpriseType::TEXT;
 }
@@ -31,6 +33,8 @@ void Letter::setIsOpen(bool isOpen) {
 void Letter::open() {
     this->isOpen = true;
     emit isOpenChanged();
+
+    ComponentServices::setSurpriseAsOpen(this->dayNumber);
 }
 
 quint8 Letter::getDayNumber() {

@@ -124,9 +124,22 @@ Item {
        opacity: 0
 
        Text {
-           text: "🎄 Buon Natale!"
+           text: "🎄🎅⛄❄️"
            anchors.centerIn: parent
-           font.pixelSize: 20
+           anchors.verticalCenterOffset: {
+               if(parent.width > 80) {
+                   return -15
+               } else {
+                   return -3
+               }
+           }
+           font.pixelSize: {
+                if(parent.width > 80) {
+                    return 16
+                } else {
+                    7
+                }
+           }
            color: "#333"
        }
 

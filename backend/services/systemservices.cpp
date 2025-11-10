@@ -2,6 +2,7 @@
 
 #include "../libs/datalibs.h"
 #include "../components/calendarcomponents.h"
+#include "../data/calendardata.h"
 
 void defineSurprises(LetterContainer* letterContainer) {
     SurpriseData surpriseData;
@@ -17,7 +18,7 @@ void generateLetters(LetterContainer* letterContainer) {
     for(int i=0;i<25;i++) {
         Letter* letter = new Letter();
         letter->setDayNumber(i+1);
-        letter->setIsOpen(false);
+        letter->setIsOpen(DataLibs::getStatus(calendarData.getLetterStatus(), i+1));
         letterContainer->addLetter(letter);
     }
 }

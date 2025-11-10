@@ -49,3 +49,12 @@ void DataLibs::inspectSurpriseDataFolder(SurpriseData &surpriseData, quint8 dayN
     surpriseData.text = in.readAll();
     file.close();
 }
+
+bool DataLibs::getStatus(quint32 status, quint8 dayNumber) {
+    return ((status & (1 << (dayNumber-1))) != 0);
+}
+
+quint32 DataLibs::setStatus(quint32 status, quint8 dayNumber) {
+    status |= (1 << (dayNumber-1));
+    return status;
+}
