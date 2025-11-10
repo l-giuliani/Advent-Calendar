@@ -4,11 +4,13 @@
 #include <QDir>
 #include <QRandomGenerator>
 #include "../config/Constants.h"
+#include <QGuiApplication>
 
 DataLibs::DataLibs() {}
 
 void DataLibs::inspectSurpriseDataFolder(SurpriseData &surpriseData, quint8 dayNumber) {
-    QString path = QString(DATA_PATH) + "/" + QString::number(dayNumber);
+    QString executableDir = QCoreApplication::applicationDirPath();
+    QString path = executableDir + "/" + QString(DATA_PATH) + "/" + QString::number(dayNumber);
 
     QStringList extvideo;
     extvideo << "*.avi";
@@ -52,12 +54,13 @@ void DataLibs::inspectSurpriseDataFolder(SurpriseData &surpriseData, quint8 dayN
 }
 
 QStringList DataLibs::retrieveLettersImages() {
+    QString executableDir = QCoreApplication::applicationDirPath();
     QString path = QString(LETTERS_IMG_PATH);
     QDir dir(path);
     QStringList list = dir.entryList(QDir::Files);
     QStringList reslist;
     for (const QString &fi : list) {
-        reslist << (QString(LETTERS_IMG_PATH) + "/" + fi);
+        reslist << (executableDir + "/" + QString(LETTERS_IMG_PATH) + "/" + fi);
     }
     return reslist;
 }

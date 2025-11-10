@@ -39,6 +39,10 @@ qt_add_qml_module(appadventCalendar
         SOURCES backend/components/componentservices.h backend/components/componentservices.cpp
 )
 
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_definitions(appadventCalendar PRIVATE DEBUG)
+endif()
+
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
