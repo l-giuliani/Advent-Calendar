@@ -49,7 +49,7 @@ Item {
                 letterComponent: letterContainer.getLetter(mapNum-1)
                 onOpened: function(dayNumber) {
                     surprisePanel.surprise = letterContainer.getLetter(dayNumber).surprise
-                    exitArea.enabled = true
+                    //exitArea.enabled = true
                     surprisePanel.visible = true
                     surprisePanel.opacity = 1
                 }
@@ -72,7 +72,7 @@ Item {
     Surprise {
         id: surprisePanel
         anchors.fill: parent
-        anchors.margins: 15
+        anchors.margins: 30
         visible: false
         opacity: 0
         Behavior on opacity {
@@ -80,6 +80,7 @@ Item {
         }
         MouseArea {
             anchors.fill: parent
+            enabled: false
             onClicked: {
             }
         }

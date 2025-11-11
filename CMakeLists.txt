@@ -37,6 +37,7 @@ qt_add_qml_module(appadventCalendar
         SOURCES backend/dto/calendardto.h backend/dto/calendardto.cpp
         SOURCES backend/data/calendardata.h backend/data/calendardata.cpp
         SOURCES backend/components/componentservices.h backend/components/componentservices.cpp
+        QML_FILES frontend/components/VMediaPlayer.qml
 )
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
