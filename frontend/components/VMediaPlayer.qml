@@ -135,29 +135,4 @@ Item {
             }
         }
     }
-
-    // Row {
-    //         id: controls
-    //         anchors.horizontalCenter: parent.horizontalCenter
-    //         anchors.bottom: parent.bottom
-    //         spacing: 10
-
-    //         Button {
-    //             text: "Play"
-    //             onClicked: player.play()
-    //             enabled: player.playbackState !== MediaPlayer.PlayingState
-    //         }
-
-    //         Button {
-    //             text: "Pausa"
-    //             onClicked: player.pause()
-    //             enabled: player.playbackState === MediaPlayer.PlayingState
-    //         }
-
-    //         Button {
-    //             text: "Stop"
-    //             onClicked: player.stop()
-    //             enabled: player.playbackState === MediaPlayer.PlayingState || player.playbackState === MediaPlayer.PausedState
-    //         }
-    //     }
 }
