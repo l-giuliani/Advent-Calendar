@@ -6,6 +6,7 @@ Item {
     property alias frontTexture: paperTexture.source
     //property alias calendarNumber: calendarNumber.text
     property int dayNumber
+    property var letterComponent
     signal opened(int dayNumber)
     Rectangle {
         id: envelopeBody
@@ -39,7 +40,7 @@ Item {
     }
 
     function open() {
-        const letter = letterContainer.getLetter(dayNumber-1)
+        const letter = letterComponent
         if(letter.isOpen){
             opened(dayNumber-1)
         } else {
@@ -57,7 +58,7 @@ Item {
             PropertyChanges {target: flapRotation; angle: 0}
             PropertyChanges {target: letter; opacity: 1; y: (envelopeBody.y - envelopeBody.height * 0.3)}
             when: {
-                return letterContainer.getLetter(dayNumber-1).isOpen
+                return letterComponent.isOpen
             }
         },
         State {
@@ -65,7 +66,7 @@ Item {
             PropertyChanges {target: flapRotation; angle: -120}
             PropertyChanges {target: letter;opacity: 0;y: (envelopeBody.y + envelopeBody.height * 0.1)}
             when: {
-                return (!letterContainer.getLetter(dayNumber-1).isOpen)
+                return (!letterComponent.isOpen)
             }
         }
     ]

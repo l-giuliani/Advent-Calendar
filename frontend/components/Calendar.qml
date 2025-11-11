@@ -46,6 +46,7 @@ Item {
                 y: (index%2==0)?(parent.height * 0.20):(parent.height * 0.30)
                 frontTexture: "file:///" + letterContainer.getLetter(mapNum-1).imageSource
                 dayNumber: mapNum
+                letterComponent: letterContainer.getLetter(mapNum-1)
                 onOpened: function(dayNumber) {
                     surprisePanel.surprise = letterContainer.getLetter(dayNumber).surprise
                     exitArea.enabled = true
