@@ -17,8 +17,20 @@ Item {
     }
 
     Item {
-        width: parent.width * 0.90
-        height: parent.height * 0.80
+        width: {
+            if(parent.width > 450) {
+                return parent.width * 0.7
+            } else {
+                return parent.width * 0.8
+            }
+        }
+        height: {
+            if(parent.height > 450) {
+                return parent.height * 0.7
+            } else {
+                return parent.height * 0.8
+            }
+        }
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         Loader {

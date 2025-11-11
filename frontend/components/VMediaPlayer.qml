@@ -5,6 +5,11 @@ import QtQuick.Controls 2.15
 Item {
     property alias url: player.source
 
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
+    }
+
     MediaPlayer {
         id: player
         autoPlay: true
@@ -26,6 +31,7 @@ Item {
         anchors.top: videoOutput.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         width: parent.width * 0.7
+        height: controlsBar.buttonsDim + 5
         property int buttonsDim: 40
         Row {
             anchors.fill: parent
@@ -33,6 +39,7 @@ Item {
             Slider {
                 id: seekBar
                 width: parent.width * 0.7
+                anchors.verticalCenter: parent.verticalCenter
                 from: 0
                 to: player.duration > 0 ? player.duration : 1
                 value: player.position

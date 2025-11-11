@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Layouts
+import QtQuick.Controls 2.15
 
 Item {
 
@@ -48,42 +49,55 @@ Item {
                 dayNumber: mapNum
                 letterComponent: letterContainer.getLetter(mapNum-1)
                 onOpened: function(dayNumber) {
-                    surprisePanel.surprise = letterContainer.getLetter(dayNumber).surprise
+                    surpriseItem.surprise = letterContainer.getLetter(dayNumber).surprise
                     //exitArea.enabled = true
-                    surprisePanel.visible = true
-                    surprisePanel.opacity = 1
+                    // surprisePanel.visible = true
+                    // surprisePanel.opacity = 1
+                    surprisePanel.open()
                 }
             }
         }
     }
 
-    MouseArea {
-        id: exitArea
-        anchors.fill: parent
-        enabled: false
-        onClicked: {
-            exitArea.enabled = false
-            surprisePanel.exit()
-            surprisePanel.opacity = 0
-            surprisePanel.visible = false
+    // MouseArea {
+    //     id: exitArea
+    //     anchors.fill: parent
+    //     enabled: false
+    //     onClicked: {
+    //         exitArea.enabled = false
+    //         surprisePanel.exit()
+    //         surprisePanel.opacity = 0
+    //         surprisePanel.visible = false
+    //     }
+    // }
+
+    Dialog {
+        id: surprisePanel
+        modal: true
+        width: parent.width - 40
+        height: parent.height - 40
+        anchors.centerIn: parent
+        closePolicy: Popup.CloseOnPressOutside | Popup.CloseOnEscape
+        onClosed: {
+            surpriseItem.exit()
+        }
+        Surprise {
+            id: surpriseItem
+            anchors.fill: parent
+            anchors.margins: - 10
+            visible: true
+            // opacity: 0
+            // Behavior on opacity {
+            //     PropertyAnimation { duration: 500; easing.type: Easing.InQuad }
+            // }
+        }
+        enter: Transition {
+            NumberAnimation { property: "opacity"; duration: 450; from: 0; to: 1 }
+        }
+        exit: Transition {
+            NumberAnimation { property: "opacity"; duration: 450; from: 1; to: 0 }
         }
     }
 
-    Surprise {
-        id: surprisePanel
-        anchors.fill: parent
-        anchors.margins: 30
-        visible: false
-        opacity: 0
-        Behavior on opacity {
-            PropertyAnimation { duration: 500; easing.type: Easing.InQuad }
-        }
-        MouseArea {
-            anchors.fill: parent
-            enabled: false
-            onClicked: {
-            }
-        }
-    }
 
 }
