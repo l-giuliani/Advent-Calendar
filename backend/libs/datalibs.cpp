@@ -43,7 +43,7 @@ void DataLibs::inspectSurpriseDataFolder(SurpriseData &surpriseData, quint8 dayN
         return;
     }
     QString txtFilepath = mediaList.at(0);
-    QFile file(txtFilepath);
+    QFile file(path + "/" + txtFilepath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         surpriseData.text = "";
         return;
