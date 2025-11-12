@@ -41,9 +41,11 @@ void Letter::setIsOpen(bool isOpen) {
 
 bool Letter::open() {
     QDate now = QDate::currentDate();
-    if( this->dayNumber > now.day()) {
+#ifndef DEBUG
+    if((now.month() != 12) || (this->dayNumber > now.day())) {
         return false;
     }
+#endif
 
     this->isOpen = true;
     emit isOpenChanged();
