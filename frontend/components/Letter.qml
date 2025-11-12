@@ -31,7 +31,7 @@ Item {
     Timer {
         id: animationTimer
         property int dayNumber
-        interval: 900
+        interval: 2000
         repeat: false
         running: false
         onTriggered: {
@@ -46,6 +46,7 @@ Item {
         } else {
             let res = letter.open()
             if(res) {
+                sparks.start()
                 animationTimer.dayNumber = dayNumber-1
                 animationTimer.start()
             }
@@ -76,6 +77,14 @@ Item {
         onClicked: {
             root.open()
         }
+    }
+
+    Sparks {
+        id: sparks
+        anchors.top: parent.top
+        anchors.topMargin: parent.height * 0.2
+        anchors.horizontalCenter: parent.horizontalCenter
+        z: 90
     }
 
     Shape {

@@ -33,8 +33,17 @@ Item {
         width: parent.width * 0.7
         height: controlsBar.buttonsDim + 5
         property int buttonsDim: 40
-        Row {
+
+        Rectangle {
+            color: "black"
             anchors.fill: parent
+        }
+
+        Row {
+            //anchors.fill: parent
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
             spacing: 5
             Slider {
                 id: seekBar
