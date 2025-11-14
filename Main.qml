@@ -10,9 +10,9 @@ Window {
     title: qsTr("Advent Calendar")
     minimumWidth: 640
     minimumHeight: 480
-    //width: Screen.desktopAvailableWidth
-    //height: Screen.desktopAvailableHeight
-    visibility: Window.FullScreen
+    width: Screen.desktopAvailableWidth
+    height: Screen.desktopAvailableHeight
+    //visibility: Window.FullScreen
 
     Image {
         anchors.fill: parent
