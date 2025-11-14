@@ -48,7 +48,7 @@ Item {
 
     Timer {
         id: execTimer
-        interval: 4000
+        interval: 1500
         running: false
         repeat: false
         onTriggered: {

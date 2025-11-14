@@ -5,7 +5,6 @@ import "surprise"
 
 Item {
     property var surprise: null
-
     function exit() {
         surprise = null
     }
@@ -51,6 +50,15 @@ Item {
                     mediaType: surprise.surpriseType
                     mediaUrl: surprise.url
                     text: surprise.text
+                }
+            }
+            onActiveChanged: {
+                if (active) {
+                    if(surprise.surpriseType === SurpriseType.VIDEO) {
+
+                    }
+                } else {
+
                 }
             }
         }

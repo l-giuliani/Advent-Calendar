@@ -19,8 +19,10 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     LetterContainer* letterContainer = new LetterContainer();
-    SystemServices::init(letterContainer);
+    PlayList* playlist = new PlayList();
+    SystemServices::init(letterContainer, playlist);
     engine.rootContext()->setContextProperty("letterContainer", letterContainer);
+    engine.rootContext()->setContextProperty("playlist", playlist);
 
 
     QObject::connect(

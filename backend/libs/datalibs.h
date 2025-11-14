@@ -12,6 +12,7 @@ public:
     static QString getRandomLettersImage(QStringList images);
     static bool getStatus(quint32 status, quint8 dayNumber);
     static quint32 setStatus(quint32 status, quint8 dayNumber);
+    static QStringList loadBgMusic();
 };
 
 #endif // DATALIBS_H

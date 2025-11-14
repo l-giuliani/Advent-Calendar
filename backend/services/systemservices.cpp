@@ -25,7 +25,13 @@ void generateLetters(LetterContainer* letterContainer) {
     }
 }
 
-void SystemServices::init(LetterContainer* letterContainer) {
+void initPlaylist(PlayList* playlist) {
+    playlist->setPlaylist(DataLibs::loadBgMusic());
+    playlist->randomSelect();
+}
+
+void SystemServices::init(LetterContainer* letterContainer, PlayList* playlist) {
+    initPlaylist(playlist);
     generateLetters(letterContainer);
     defineSurprises(letterContainer);
 }

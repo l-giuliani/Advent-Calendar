@@ -40,6 +40,8 @@ qt_add_qml_module(appadventCalendar
         QML_FILES frontend/components/VMediaPlayer.qml
         QML_FILES frontend/components/Snow.qml
         QML_FILES frontend/components/Sparks.qml
+        SOURCES backend/components/mediacomponents.h backend/components/mediacomponents.cpp
+        QML_FILES frontend/components/BgMusic.qml
 )
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")

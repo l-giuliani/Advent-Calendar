@@ -55,7 +55,7 @@ void DataLibs::inspectSurpriseDataFolder(SurpriseData &surpriseData, quint8 dayN
 
 QStringList DataLibs::retrieveLettersImages() {
     QString executableDir = QCoreApplication::applicationDirPath();
-    QString path = QString(LETTERS_IMG_PATH);
+    QString path = executableDir + "/" + QString(LETTERS_IMG_PATH);
     QDir dir(path);
     QStringList list = dir.entryList(QDir::Files);
     QStringList reslist;
@@ -77,4 +77,16 @@ bool DataLibs::getStatus(quint32 status, quint8 dayNumber) {
 quint32 DataLibs::setStatus(quint32 status, quint8 dayNumber) {
     status |= (1 << (dayNumber-1));
     return status;
+}
+
+QStringList DataLibs::loadBgMusic() {
+    QString executableDir = QCoreApplication::applicationDirPath();
+    QString path = executableDir + "/" + QString(BGMUSIC_PATH);
+    QDir dir(path);
+    QStringList list = dir.entryList(QDir::Files);
+    QStringList reslist;
+    for (const QString &fi : list) {
+        reslist << (path + "/" + fi);
+    }
+    return reslist;
 }

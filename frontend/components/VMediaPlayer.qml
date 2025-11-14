@@ -12,7 +12,7 @@ Item {
 
     MediaPlayer {
         id: player
-        autoPlay: true
+        autoPlay: false
         loops: MediaPlayer.Infinite
         videoOutput: videoOutput
         audioOutput: audioOutput
@@ -62,7 +62,7 @@ Item {
                 radius: 50
                 anchors.verticalCenter: parent.verticalCenter
                 gradient: Gradient {
-                    orientation: Gradient.Diagonal
+                    //orientation: Gradient.Diagonal
                     GradientStop {
                         position: 0.0
                         color: "#8B0000"
@@ -93,7 +93,7 @@ Item {
                 radius: 50
                 anchors.verticalCenter: parent.verticalCenter
                 gradient: Gradient {
-                        orientation: Gradient.Diagonal
+                        //orientation: Gradient.Diagonal
                         GradientStop {
                             position: 0.0
                             color: "#B8860B"
@@ -124,7 +124,7 @@ Item {
                 radius: 50
                 anchors.verticalCenter: parent.verticalCenter
                 gradient: Gradient {
-                        orientation: Gradient.Diagonal
+                        //orientation: Gradient.Diagonal
                         GradientStop {
                             position: 0.0
                             color: "#006400"
