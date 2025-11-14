@@ -18,23 +18,23 @@ Item {
         anchors.centerIn: parent
         emitRate: 150
         lifeSpan: 2000
-        size: 10
-        sizeVariation: 6
+        size: 3
+        sizeVariation: 2
         velocity: AngleDirection {
             angle: -90
             angleVariation: 30
-            magnitude: 120
+            magnitude: 150
             magnitudeVariation: 40
         }
-        acceleration: PointDirection { y: 140 }
+        acceleration: PointDirection { y: 170 }
         enabled: false
     }
 
     Component {
         id: sparkParticleDelegate
         Rectangle {
-            width: 5
-            height: 5
+            width: 3
+            height: 4
             color: (Math.random() < 0.5 ? "yellow" : "red")
             radius: width / 2
         }
