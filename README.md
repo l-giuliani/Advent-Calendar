@@ -20,11 +20,11 @@ You can customize some aspects of the calendar, such as the images on the letter
 
 ###### App directory structure:
 
-├──AdventCalendar
-│
-├── bin
-│
-└── data
+├──AdventCalendar  
+│  
+├── bin  
+│  
+└── data  
 
 The data folder contains the app status file (status.dat), which stores information about the letters' state: whether they are open or closed. You can delete this file in order to reset app status. The data folder also contains customizable content, which is not encrypted in this version.
 
