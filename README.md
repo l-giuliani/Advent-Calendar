@@ -30,12 +30,12 @@ The data folder contains the app status file (status.dat), which stores informat
 
 data folder has  the following structure:
 
-letters/
-music/
-1/
-2/
-3/
-...
+letters/  
+music/  
+1/  
+2/  
+3/  
+...  
 
 - letters/ contains image files that will be displayed on the app's letters. Image files can have any name. Images will be displayed randomly on the letters.
 
