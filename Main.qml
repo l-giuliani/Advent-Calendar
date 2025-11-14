@@ -8,6 +8,8 @@ Window {
      height: 480
     visible: true
     title: qsTr("Advent Calendar")
+    minimumWidth: 640
+    minimumHeight: 480
     //width: Screen.desktopAvailableWidth
     //height: Screen.desktopAvailableHeight
     //visibility: Window.FullScreen

@@ -30,7 +30,7 @@ Item {
         id: controlsBar
         anchors.top: videoOutput.bottom
         anchors.horizontalCenter: parent.horizontalCenter
-        width: parent.width * 0.7
+        width: parent.width
         height: controlsBar.buttonsDim + 5
         property int buttonsDim: 40
 
@@ -47,7 +47,13 @@ Item {
             spacing: 5
             Slider {
                 id: seekBar
-                width: parent.width * 0.7
+                width: {
+                    if(parent.width > 450) {
+                        controlsBar.width * 0.7
+                    } else {
+                        controlsBar.width * 0.5
+                    }
+                }
                 anchors.verticalCenter: parent.verticalCenter
                 from: 0
                 to: player.duration > 0 ? player.duration : 1
