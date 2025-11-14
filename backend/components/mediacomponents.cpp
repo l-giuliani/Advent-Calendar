@@ -24,6 +24,17 @@ void PlayList::randomSelect() {
     emit currentChanged();
 }
 
+void PlayList::stop() {
+    this->current = "";
+    emit currentChanged();
+}
+
+void PlayList::restart() {
+    if(this->current == "") {
+        this->randomSelect();
+    }
+}
+
 QString PlayList::getCurrent() {
     return this->current;
 }

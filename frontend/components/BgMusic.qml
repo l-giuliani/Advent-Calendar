@@ -47,16 +47,16 @@ Item {
         id: fadeTimer
         repeat: true
         running: false
+        interval: 800
         property var playerVol
         onTriggered: {
-            console.log(audioOutput.volume)
             if(audioOutput.volume >= 0.15) {
                 audioOutput.volume = 0.1 + (audioOutput.volume - 0.1) * 0.5
             } else {
                 fadeTimer.stop()
                 audioOutput.volume = playerVol
                 playlist.randomSelect()
-                changeBgTimer.start()
+                //changeBgTimer.start()
             }
         }
     }
@@ -64,6 +64,12 @@ Item {
     Connections {
         target: playlist
         function onCurrentChanged () {
+            if(playlist.current === "" && player.source !== "") {
+                changeBgTimer.stop()
+                fadeTimer.stop()
+            } else {
+                changeBgTimer.start()
+            }
             player.source = playlist.current
             player.play()
         }

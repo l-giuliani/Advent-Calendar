@@ -16,6 +16,10 @@ public:
     void setPlaylist(QStringList playlist);
     Q_INVOKABLE
     void randomSelect();
+    Q_INVOKABLE
+    void stop();
+    Q_INVOKABLE
+    void restart();
     QString getCurrent();
     quint16 getPlaylistCount();
 signals:

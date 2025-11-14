@@ -54,11 +54,9 @@ Item {
             }
             onActiveChanged: {
                 if (active) {
-                    if(surprise.surpriseType === SurpriseType.VIDEO) {
-
-                    }
+                    playlist.stop()
                 } else {
-
+                    playlist.randomSelect()
                 }
             }
         }
