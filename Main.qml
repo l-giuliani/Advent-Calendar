@@ -4,15 +4,15 @@ import QtQuick.Controls
 import "frontend/components"
 
 Window {
-     width: 640
-     height: 480
+     //width: 640
+     //height: 480
     visible: true
     title: qsTr("Advent Calendar")
     minimumWidth: 640
     minimumHeight: 480
     //width: Screen.desktopAvailableWidth
     //height: Screen.desktopAvailableHeight
-    //visibility: Window.FullScreen
+    visibility: Window.FullScreen
 
     Image {
         anchors.fill: parent
