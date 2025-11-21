@@ -28,6 +28,20 @@ Item {
                 }
             }
         }
+        Loader {
+            active: (mediaType !== null) && (mediaType === SurpriseType.IMAGE)
+            anchors.fill: parent
+            sourceComponent: Component {
+                Item {
+                    Image {
+                        anchors.fill: parent
+                        anchors.margins: 10
+                        source: "file:///" + mediaUrl
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+            }
+        }
     }
     Text {
         id: txt
